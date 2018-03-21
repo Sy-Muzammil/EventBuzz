@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<?php
+require 'essential.inc.php';
+?>
+<style>
+.main_body {
+    
+   
+}
+</style>
+<html lang="en">
+<head>
+  <title>Profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="main_body" style="width:25%;margin-left:150px;">
+<div class="container">
+  <h2>Dynamic Tabs</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
+    <li><a data-toggle="tab" href="#menu1">Change Password</a></li>
+    <li><a data-toggle="tab" href="#menu2">Orders</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+    
+    <div class="panel panel-default">
+    <div class="panel-body"><form role="form"action="profile.php" id="login" method="POST" >
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" id="username"  name="EmailP"class="form-control" ">
+			</div>
+<div class="form-group">
+				<label for="text">Name</label>
+				<input type="text" name="NameP"class="form-control" id="pwd" >
+			</div>
+
+			<div class="form-group">
+				<label >Address</label>
+				<input type="text" name="AddressP"class="form-control" id="pwd" >
+			</div>
+			<div class="form-group">
+				<label for="pwd">Country</label>
+				<input type="text" name="CountryP"class="form-control" id="pwd">
+			</div>
+			<div class="form-group">
+				<label for="pwd">State</label>
+				<input type="text" name="StateP"class="form-control" id="pwd" >
+			</div>
+			<div class="form-group">
+				<label for="pwd">City</label>
+				<input type="text" name="CityP"class="form-control" id="pwd" >
+			</div><div class="form-group">
+				<label for="pwd">Pincode</label>
+				<input type="number" name="PincodeP"class="form-control" id="pwd" >
+			</div>
+			
+			<div class="form-group">
+			<label for="sel1">Gender </label>
+			<select class="form-control" id="sel1">
+			<option>Male</option>
+			<option>Female</option>
+			</select>
+			</div>
+			
+			<div class="form-group">
+				<label for="DOB">Date of Birth</label>
+				<input type="date" name="Password"class="form-control" id="pwd" >
+			</div>
+			<div class="form-group">
+				<label for="pwd">Contact No.</label>
+				<input type="text" name="ContactP"class="form-control" id="pwd" >
+			</div>
+			<br><button style="float:right;"type="submit" class="btn btn-info">Save</span></button>
+		  </form></div>
+  </div>
+     
+    </div>
+    <div id="menu1" class="tab-pane fade">
+    <div class="panel panel-default">
+    <div class="panel-body">
+      <form role="form"action="profile.php" id="login" method="POST" >
+			<div class="form-group">
+				<label for="email">Old Password</label>
+				<input type="password" id="username"   name="Email"class="form-control" >
+			</div>
+			<div class="form-group">
+				<label for="text">New Password</label>
+				<input type="password" name="Password"class="form-control" id="pwd" >
+			</div>
+			<div class="form-group">
+				<label for="pwd">Change Password</label>
+				<input type="password" name="Password"class="form-control" id="pwd" >
+			</div>
+			<br><button style="float:right;"type="submit" class="btn btn-info">Save</span></button>
+		  </form>
+    </div></div>
+     
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <div class="panel panel-default">
+    <div class="panel-heading">Order No.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	Date&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	Items&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAmount</div>
+    <div class="panel-body">No records Found</div>
+  </div>
+      
+    </div>
+   
+  </div>
+</div>
+</div>
+  </div>
+
+  </div>
+
+
+  </div>
+  
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
