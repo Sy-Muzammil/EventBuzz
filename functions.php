@@ -142,6 +142,29 @@ function getUserEditProfile(){
 }
 
 
+
+function getHeader(){
+ require 'connect.inc.php';
+  $result = mysqli_query($link,"SELECT * FROM `Event` where EventID=".$_REQUEST['id']."");
+  $row = mysqli_fetch_array($result);
+  echo '<h3 style="color:black;" class="mbr-section-title display-2">'.$row['Name'].'</h3>
+<div style="color:black;" class="mbr-section-text">
+  <p>'.$row['Description'].'</p>
+                            </div>
+  <a ';
+    $result = mysqli_query($link,"SELECT * FROM `register` where EventID='".$_REQUEST['id']."' and userID='".$_SESSION['id']."'");
+
+  if(mysqli_num_rows($result)==0){
+      echo 'href="registerEvent.php?id='.$_REQUEST['id'].'">register</a>';
+  }
+  else echo 'href="unregister.php?id='.$_REQUEST['id'].'">unregister</a>';
+  mysqli_close ($link);
+
+}
+
+
+
+
 function getEvent() {
   require 'connect.inc.php';
   $result = mysqli_query($link,"SELECT * FROM `Event`");
@@ -164,7 +187,7 @@ function getEvent() {
                         <h4 class="card-title"><font size="5">'.$row['Name'].'</font></h4>
                         <p class="card-text" ><font size="3">Start Date : '.$row['EventStart'].' <br>EventEnd : '.$row['EventEnd'].'
                         </p>
-                        <div class="card-btn"><a href="#" class="btn btn-primary">MORE</a></div>
+                        <div class="card-btn"><a href="16_consumer_CSAProfile.php?id='.$row['EventID'].'" class="btn btn-primary">MORE</a></div>
                     </div>
                 </div>
             </div>
