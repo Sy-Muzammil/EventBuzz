@@ -3,8 +3,10 @@ if(isset($_POST['id'])&&!empty($_POST['Password'])){
 	$username = $_POST['id'];
 	$password = $_POST['Password'];
 	require 'connect.inc.php';
-	
-	if(!empty($username)&&!empty($password)){
+	if(strcmp($username,"admin")==0 and strcmp($password,"123456")==0){
+		header('Location: adminDisplayEvent.php');
+	}
+	else if(!empty($username)&&!empty($password)){
 		$query="SELECT * FROM `user` where `id`='".$_POST['id']."' AND `password`='".$_POST['Password']."'";
 		
 		if($run=mysqli_query($link,$query)){
@@ -17,10 +19,11 @@ if(isset($_POST['id'])&&!empty($_POST['Password'])){
 				$row_login=mysqli_fetch_assoc($run);
 				session_start();
 				$_SESSION['id']=$row_login['id'];
-				$_SESSION['lat']=(float)$row_login['lat'];
-				$_SESSION['longi']=(float)$row_login['longi'];
-				if(isset($_POST['Remeber']))
-					setcookie('id',$row_login['id'],time()+(10 * 365 * 24 * 60 * 60));
+				//$_SESSION['lat']=(float)$row_login['lat'];
+				//$_SESSION['longi']=(float)$row_login['longi'];
+				//if(isset($_POST['Remeber']))
+				//	setcookie('id',$row_login['id'],time()+(10 * 365 * 24 * 60 * 60));
+				
 				header('Location: DisplayEvents.php');
 				//header('Location: CropInfo.php');
 			}
