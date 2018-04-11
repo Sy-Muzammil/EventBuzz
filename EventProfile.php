@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<?php require 'essential.inc.php';
+<?php 
+    require 'essential.inc.php';
     require 'functions.php';
 ?>
 
@@ -12,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="assets/images/mbr-favicon.png" type="image/x-icon">
   <meta name="description" content="Site Maker Description">
-  <title>User Profile</title>
+  <title>Event Profile</title>
   <link rel="stylesheet" href="assets/bootstrap-material-design-font/css/material.css">
   <link rel="stylesheet" href="assets/et-line-font-plugin/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -21,6 +22,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&subset=latin">
   <link rel="stylesheet" href="assets/tether/tether.min.css">
   <link rel="stylesheet" href="assets/soundcloud-plugin/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/dropdown/css/style.css">
   <link rel="stylesheet" href="assets/animate.css/animate.min.css">
@@ -80,11 +82,11 @@
                     <div class="mbr-table-md-up">
                         
                         <div class="mbr-table-cell mbr-right-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 50%;">
-                            <div class="mbr-figure"><img  src="user.jpg" width="200" height="400" ></div>
+                            <div class="mbr-figure"><img  src="farm.jpg" width="200" height="400" ></div>
                         </div>
                         <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
                         <?php
-                           getUserInfo();
+                           getHeader();
                         ?>
 
                             
@@ -104,65 +106,88 @@
     <div class="mbr-arrow mbr-arrow-floating hidden-sm-down" aria-hidden="true"><a href="#features7-24"><i class="mbr-arrow-icon"></i></a></div>
 
 </section>
+<?php 
+   // include 'BuyCSA.inc.php';
+?>
 
 <section class="mbr-section article mbr-section__container" id="content2-2e" data-rv-view="198" style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
 
     <?php
-    getUserInterests();
+    getEventDetails();
 
     ?>
 
 </section>
-<div class="clear">&nbsp;</div> 
-<div class="clear">&nbsp;</div> 
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.button {
-  float: right;
-  border-radius: 4px;
-  background-color: red;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 250px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-</style>
-<body>
-<a href="editProfile.php"><button class="button"><span>Edit Profile</span></button></a>
-</body>
 
 
+<section class="mbr-section mbr-parallax-background" id="testimonials4-1i" data-rv-view="17" style="background-image: url(assets/images/sky.jpg); padding-top: 120px; padding-bottom: 120px;">
+
+    <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(34, 34, 34);">
+    </div>
+
+        <div class="mbr-section mbr-section__container mbr-section__container--middle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-xs-center">
+                        <h3 class="mbr-section-title display-2">Organiser Details</h3>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="mbr-section mbr-section-nopadding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12">
+                <?php
+                    //getReviews();
+                ?>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section mbr-section-md-padding mbr-footer footer2" id="contacts2-1j" data-rv-view="27" style="background-color: rgb(46, 46, 46); padding-top: 90px; padding-bottom: 90px;">
+    
+    <?php
+   EventProfileOrganiserfooter();
+    ?>
+</section>
+<section class="mbr-section mbr-section-md-padding" id="social-buttons1-c" data-rv-view="5" style="background-color: rgb(255, 255, 255); padding-top: 90px; padding-bottom: 90px;">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-xs-center">
+                <h3 class="mbr-section-title display-2">Share and Ride</h3>
+                <div>
+
+                  
+                 <div class="mbr-social-likes" data-counters="false">
+                    <span class="btn btn-social facebook" title="Share link on Facebook">
+                        <i class="socicon socicon-facebook"></i>
+                    </span>
+                    <span class="btn btn-social twitter" title="Share link on Twitter">
+                        <i class="socicon socicon-twitter"></i>
+                    </span>
+
+                    <span class="btn btn-social uber" title="Ride"><a href="https://www.uber.com/en-IN/ride/">
+                        <i class="socicon socicon-uber"></i>
+                    </span>  
+                            
+                
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  
 
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/tether/tether.min.js"></script>

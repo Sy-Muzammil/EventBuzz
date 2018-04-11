@@ -4,42 +4,42 @@ require 'essential.inc.php';
 ?>
 <?php
 require 'connect.inc.php';
-mysqli_query($link,"Delete from `Interests` where `id`=".$_SESSION['id']."");
+mysqli_query($link,"Delete from `Interests` where `id`='".$_SESSION['id']."'");
 mysqli_close ($link);
 if(isset($_POST['Broadway'])){
 	require 'connect.inc.php';
 	$f=0;
-	mysqli_query($link,"INSERT INTO `Interests`(`id`, `Interest`) VALUES (5,'Broadway')");
+	mysqli_query($link,"INSERT INTO `Interests`(`id`, `Interest`) VALUES ('".$_SESSION['id']."','Broadway')");
 	mysqli_close ($link);
 }
 if(isset($_POST['Dance'])){
 	require 'connect.inc.php';
 	$f=0;
-	mysqli_query($link,"INSERT INTO `Interests`(`id`, `Interest`) VALUES (5,'Dance')");
+	mysqli_query($link,"INSERT INTO `Interests`(`id`, `Interest`) VALUES ('".$_SESSION['id']."','Dance')");
 	mysqli_close ($link);
 }
 if(isset($_POST['Family'])){
 	require 'connect.inc.php';
 	$f=0;
-	mysqli_query($link,"INSERT INTO `Interests`(`id`, `Interest`) VALUES (5,'Family')");
+	mysqli_query($link,"INSERT INTO `Interests`(`id`, `Interest`) VALUES ('".$_SESSION['id']."','Family')");
 	mysqli_close ($link);
 }
 if(isset($_POST['Opera'])){
 	require 'connect.inc.php';
 	$f=0;
-	mysqli_query($link,"INSERT INTO `Interests`(`id`, `Interest`) VALUES (5,'Opera')");
+	mysqli_query($link,"INSERT INTO `Interests`(`id`, `Interest`) VALUES ('".$_SESSION['id']."','Opera')");
 	mysqli_close ($link);
 }
  if(isset($_POST['Music'])){
 	require 'connect.inc.php';
 	$f=0;
-	mysqli_query($link,"INSERT INTO `Interests`(`id`, `Interest`) VALUES (5,'Music')");
+	mysqli_query($link,"INSERT INTO `Interests`(`id`, `Interest`) VALUES ('".$_SESSION['id']."','Music')");
 	mysqli_close ($link);
 }
  if(isset($_POST['Theatre'])){
 	require 'connect.inc.php';
 	$f=0;
-	mysqli_query($link,"INSERT INTO `Interests`(`id`, `Interest`) VALUES (5,'Theatre')");
+	mysqli_query($link,"INSERT INTO `Interests`(`id`, `Interest`) VALUES ('".$_SESSION['id']."','Theatre')");
 	mysqli_close ($link);
 }
 
@@ -47,13 +47,8 @@ if(isset($_POST['NameP'])&&!empty($_POST['NameP'])){
 		require 'connect.inc.php';
 		$query="UPDATE `user` SET `name`='".$_POST['NameP']."',`contact`='".$_POST['ContactP']."',`Country`='".$_POST['CountryP']."',`State`='".$_POST['StateP']."',`City`='".$_POST['CityP']."',`email`='".$_POST['EmailP']."',`postal_code`='".$_POST['PincodeP']."',`address`='".$_POST['AddressP']."' WHERE id=".$_SESSION['id']."";
 		if($run=mysqli_query($link,$query)){
-			echo '<script>$(document).ready (function(){
-                $("#success-profile").alert();
-                $("#success-profile").fadeTo(1000, 500).slideUp(500, function(){
-               $("#success-profile").hide();
-                });   
-		});</script>';
-			}
+			header('Location: UserProfile.php');
+		}
 		else{
 			echo '<script>alert("Please Fill all details");</script>';
 		}
@@ -61,7 +56,7 @@ if(isset($_POST['NameP'])&&!empty($_POST['NameP'])){
 ?>
 <html lang="en">
 <head>
-  <title>Profile</title>
+  <title>Edit User Profile</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

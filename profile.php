@@ -4,10 +4,20 @@ require 'essential.inc.php';
 ?>
 <?php
 if(isset($_POST['NameP'])&&!empty($_POST['NameP'])){
-		require 'connect.inc.php';
-		//$hash = md5( rand(0,1000) );
-        $password = md5(rand(0,1000));
-                
+	require 'connect.inc.php';
+	//$hash = md5( rand(0,1000) );
+    $password = $_POST['Password'];//md5(rand(0,1000));
+         
+    $User = mysqli_query($link,"SELECT * FROM `user` ");
+    $Dupflag = 0;
+    while($row = mysqli_fetch_array($User)){
+        if(strcmp($row['email'],$_POST['EmailP'])==0){
+            $Dupflag = 1;
+            break;
+        }
+    }
+    if($Dupflag == 0){
+
 		$query="INSERT INTO `user`(`name`,`password`, `contact`, `email`, `address`, `City`, `State`, `Country`, `postal_code`,`Gender`,`Profession`) VALUES ('".$_POST['NameP']."','".$password."','".$_POST['ContactP']."','".$_POST['EmailP']."','".$_POST['AddressP']."','".$_POST['CityP']."','".$_POST['StateP']."','".$_POST['CountryP']."','".$_POST['PincodeP']."','".$_POST['Gender']."','".$_POST['Profession']."')";
 		if($run=mysqli_query($link,$query)){
 			$query="SELECT * FROM `user` where `email`='".$_POST['EmailP']."' AND `password`='".$_POST['Password']."'";
@@ -45,18 +55,15 @@ if(isset($_POST['NameP'])&&!empty($_POST['NameP'])){
 				mysqli_close ($link);
 			}
 			//require 'connect.inc.php';
-            
-			echo '<script>$(document).ready (function(){
-                $("#success-profile").alert();
-                $("#success-profile").fadeTo(1000, 500).slideUp(500, function(){
-               $("#success-profile").hide();
-                });   
-		});</script>';
 			header('Location:DisplayEvents.php');
 			}
 		else{
 			echo '<script>alert("Please Fill all details");</script>';
 		}
+	}
+	else
+		echo '<script>alert("User with this email already exists");</script>';
+		
 }
 ?>
 <html lang="en">

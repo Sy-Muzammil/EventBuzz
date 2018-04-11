@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="assets/images/mbr-favicon.png" type="image/x-icon">
   <meta name="description" content="Site Maker Description">
-  <title>User Profile</title>
+  <title>Admin Event Page</title>
   <link rel="stylesheet" href="assets/bootstrap-material-design-font/css/material.css">
   <link rel="stylesheet" href="assets/et-line-font-plugin/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -40,8 +40,8 @@
                 <div class="mbr-table-cell">
 
                     <div class="navbar-brand">
-                        <a href="DisplayEvents.php" class="mbri-globe mbr-iconfont mbr-iconfont-menu navbar-logo"></a>
-                        <a class="navbar-caption" href="DisplayEvents.php">Event Recommendation System</a>
+                        <a href="14_consumerBuy.php" class="mbri-globe mbr-iconfont mbr-iconfont-menu navbar-logo"></a>
+                        <a class="navbar-caption" href="adminDisplayEvent.php">Event Recommendation system</a>
                     </div>
 
                 </div>
@@ -52,8 +52,7 @@
                     </button>
 
                     <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
-                    <li class="nav-item nav-btn"><a class="nav-link btn btn-white btn-white-outline" href="OrganiserEventList.php">Created Events</a></li>
-                    <li class="nav-item nav-btn"><a class="nav-link btn btn-white btn-white-outline" href="RegisteredEvents.php">My Events</a></li>
+                    
                     <li class="nav-item dropdown"><a class="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="#" aria-expanded="false">Account</a><div class="dropdown-menu"><a class="dropdown-item" href="UserProfile.php">Profile</a><a class="dropdown-item" href="logout.php">logout</a></div></li></ul>
                     <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
                         <div class="close-icon"></div>
@@ -80,20 +79,13 @@
                     <div class="mbr-table-md-up">
                         
                         <div class="mbr-table-cell mbr-right-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 50%;">
-                            <div class="mbr-figure"><img  src="user.jpg" width="200" height="400" ></div>
+                            <div class="mbr-figure"><img  src="farm.jpg" width="200" height="400" ></div>
                         </div>
                         <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
                         <?php
-                           getUserInfo();
+                           getadminHeader();
                         ?>
-
-                            
-
                         </div>
-
-                        
-                        
-
                     </div>
                 </div>
             </div>
@@ -105,63 +97,56 @@
 
 </section>
 
+
 <section class="mbr-section article mbr-section__container" id="content2-2e" data-rv-view="198" style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
 
     <?php
-    getUserInterests();
+    getEventDetails();
 
     ?>
 
 </section>
-<div class="clear">&nbsp;</div> 
-<div class="clear">&nbsp;</div> 
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.button {
-  float: right;
-  border-radius: 4px;
-  background-color: red;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 250px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
+<section class="mbr-section mbr-parallax-background" id="testimonials4-1i" data-rv-view="17" style="background-image: url(assets/images/sky.jpg); padding-top: 120px; padding-bottom: 120px;">
 
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
+    <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(34, 34, 34);">
+    </div>
 
-.button:hover span {
-  padding-right: 25px;
-}
+        <div class="mbr-section mbr-section__container mbr-section__container--middle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-xs-center">
+                        <h3 class="mbr-section-title display-2">Organiser Details</h3>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-</style>
-<body>
-<a href="editProfile.php"><button class="button"><span>Edit Profile</span></button></a>
-</body>
 
+    <div class="mbr-section mbr-section-nopadding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12">
+                <?php
+                    //getReviews();
+                ?>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section mbr-section-md-padding mbr-footer footer2" id="contacts2-1j" data-rv-view="27" style="background-color: rgb(46, 46, 46); padding-top: 90px; padding-bottom: 90px;">
+    
+    <?php
+   AdminEventProfileOrganiserfooter();
+    ?>
+</section>
 
 
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
