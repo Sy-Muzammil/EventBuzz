@@ -1,6 +1,12 @@
 <?php 
-require 'essential.inc.php';
-    require 'functions.php';
+  require 'essential.inc.php';
+?>
+
+<?php
+  include 'eventFunctions.php';
+  #include 'userFunctions.php';
+  #$User = new UserClass();
+  $Event = new EventClass();
 ?>
 
 <!DOCTYPE html>
@@ -82,11 +88,9 @@ require 'essential.inc.php';
     </div>
 
 </section>
+
 <?php
-getRegisteredEvent();
-//getEventNotification();
-// echo shell_exec('sh /var/www/html/EventBuzz/RegistraionNotification.sh syedmuzi31@gmail.com');
-// echo "done";
+  $Event->getRegisteredEvent();
 ?>
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/tether/tether.min.js"></script>

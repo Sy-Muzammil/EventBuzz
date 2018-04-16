@@ -77,6 +77,7 @@
                     <p class="mbr-section-lead lead">M and M</p>
                     <div class="mbr-section-btn">
                      <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#login">Login</button>
+                     
                       <a href="profile.php"><button type="button" class="btn btn-lg btn-white btn-white-outline" data-toggle="modal" data-dismiss="modal">Sign Up</button></div></a>
                 </div>
             </div>
@@ -84,6 +85,7 @@
     </div>
   
 <?php include 'loginform.php';?>
+
 
     <div class="mbr-arrow mbr-arrow-floating" aria-hidden="true"><a href="#social-buttons1-c"><i class="mbr-arrow-icon"></i></a></div>
 

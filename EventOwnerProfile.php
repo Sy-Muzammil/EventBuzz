@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<?php require 'essential.inc.php';
-    require 'functions.php';
+<?php 
+  require 'essential.inc.php'; 
 ?>
 
+<?php
+  include 'eventFunctions.php';
+  #include 'userFunctions.php';
+  #$User = new UserClass();
+  $Event = new EventClass();
+?>
   <!-- Site made with Mobirise Website Builder v4.3.0, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -84,7 +90,7 @@
                         </div>
                         <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
                         <?php
-                           getEventHeader();
+                           $Event->getEventHeader();
                         ?>
 
                             
@@ -111,52 +117,11 @@
 <section class="mbr-section article mbr-section__container" id="content2-2e" data-rv-view="198" style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
 
     <?php
-    getEventDetails();
+    $Event->getEventDetails();
 
     ?>
 
 </section>
-
-
-<!-- <section class="mbr-section mbr-parallax-background" id="testimonials4-1i" data-rv-view="17" style="background-image: url(assets/images/sky.jpg); padding-top: 120px; padding-bottom: 120px;">
-
-    <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(34, 34, 34);">
-    </div>
-
-        <div class="mbr-section mbr-section__container mbr-section__container--middle">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 text-xs-center">
-                        <h3 class="mbr-section-title display-2">Organiser Details</h3>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    <div class="mbr-section mbr-section-nopadding">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-xs-12">
-                <?php
-                    //getReviews();
-                ?>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</section> -->
-
-<!-- <section class="mbr-section mbr-section-md-padding mbr-footer footer2" id="contacts2-1j" data-rv-view="27" style="background-color: rgb(46, 46, 46); padding-top: 90px; padding-bottom: 90px;">
-    
-    <?php
-   //EventProfileOrganiserfooter();
-    ?>
-</section> -->
 
 
   <script src="assets/web/assets/jquery/jquery.min.js"></script>

@@ -1,6 +1,12 @@
 <?php 
-  require 'essential.inc.php';
-    require 'functions.php';
+  require 'essential.inc.php'; 
+?>
+
+<?php
+  include 'eventFunctions.php';
+  #include 'userFunctions.php';
+  #$User = new UserClass();
+  $Event = new EventClass();
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +88,7 @@
 
 </section>
 <?php
-getUserEvent();
+$Event->getUserEvent();
 ?>
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/tether/tether.min.js"></script>

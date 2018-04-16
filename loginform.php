@@ -7,7 +7,7 @@ if(isset($_POST['id'])&&!empty($_POST['Password'])){
 		header('Location: adminDisplayEvent.php');
 	}
 	else if(!empty($username)&&!empty($password)){
-		$query="SELECT * FROM `user` where `id`='".$_POST['id']."' AND `password`='".$_POST['Password']."'";
+		$query="SELECT * FROM `user` where `name`='".$_POST['id']."' AND `password`='".$_POST['Password']."'";
 		
 		if($run=mysqli_query($link,$query)){
 			mysqli_close ($link);
@@ -59,9 +59,7 @@ if(isset($_POST['id'])&&!empty($_POST['Password'])){
 				<label for="pwd">Password</label>
 				<input type="password" name="Password"class="form-control" id="pwd" placeholder="Enter password">
 			</div>
-			<div class="checkbox">
-				<label><input type="checkbox"id="ch"name="Remeber"> Remember me</label>
-			</div >
+			
 			<button style="float:right;"type="submit" class="btn btn-lg btn-primary">Login</span></button>
 		  </form>
         </div>
