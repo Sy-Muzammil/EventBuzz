@@ -1,9 +1,15 @@
 <?php
 require 'essential.inc.php';
+
+//getEventNotification("mohammeddewaswala@gmail.com","hello\ world","3");	
 //require 'connect.inc.php';
+?>
+
+<?php
+
 function verification(){
 require 'connect.inc.php';
-	require 'functions.php';
+	
   	$Eresult = mysqli_query($link,"SELECT * FROM `Event` where EventID=".$_REQUEST['id']."");
   	$Erow = mysqli_fetch_array($Eresult);
   	$Uresult = mysqli_query($link,"SELECT * FROM `user`");
@@ -18,23 +24,27 @@ require 'connect.inc.php';
 	  $EventOrganiserID = $Erow['OrganiserID'];
 	  $UserEmails = array();
 	  $i = 0;
+	  $event="New Event in Your Vicinity of Your Interest. Event Name : ".$Erow['Name']."  Link : http://localhost/EventBuzz/EventProfile.php?id=".$_REQUEST['id']."";
 	 	while($Urow=mysqli_fetch_array($Uresult)){
 	 		$Interests = mysqli_query($link,"SELECT Interest FROM `Interests` where id = '".$Urow['id']."'");
   			$interest = array();
   			//echo "hi";
+
   			while($row = mysqli_fetch_array($Interests)){
     			$interest[] = $row['Interest'];
   			}
   			//$interest = array();
 	 		if(($Urow['City'] == $EventCity and $Urow['State'] == $EventState) and $Urow['id'] != $EventOrganiserID and count(array_intersect($interest,$eventTags))>0){
-	 			$UserEmails[] = $Urow['email'];
-	 			echo "1hi";
+	 			$Interests = mysqli_query($link,"INSERT INTO `Notification`(`userID`, `Event`) VALUES ('".$Urow['id']."','".$event."')");
+	 			//$UserEmails[] = $Urow['email'];
+	 			//echo "1hi";
 	 			$i+=1;
 	 		}
 	  	}
 	  	for($j = 0; $j < $i; $j++){
 	  		//echo "hi";
-	  		getEventNotification($UserEmails[$j],$Erow['Name'],$_REQUEST['id']);	
+
+	  		//getEventNotification($UserEmails[$j],$Erow['Name'],$_REQUEST['id']);	
 	  	}
 }
 function updation(){
@@ -64,5 +74,5 @@ else{
 mysqli_query($link,"UPDATE `Event` SET `EventVerified` = '1' WHERE `Event`.`EventID` = ".$_REQUEST['id']."");
 	  mysqli_close ($link);
 
-header('Location: adminDisplayEvent.php');
+//header('Location: adminDisplayEvent.php');
 ?>
