@@ -2,7 +2,13 @@
 <html>
 <head>
 <?php require 'essential.inc.php';
-    require 'functions.php';
+    
+?>
+<?php
+  #include 'eventFunctions.php';
+  include 'userFunctions.php';
+  $User = new UserClass();
+  #$Event = new EventClass();
 ?>
 
   <!-- Site made with Mobirise Website Builder v4.3.0, https://mobirise.com -->
@@ -84,7 +90,7 @@
                         </div>
                         <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
                         <?php
-                           getUserInfo();
+                           $User->getUserInfo();
                         ?>
 
                             
@@ -108,7 +114,7 @@
 <section class="mbr-section article mbr-section__container" id="content2-2e" data-rv-view="198" style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
 
     <?php
-    getUserInterests();
+    $User->getUserInterests();
 
     ?>
 

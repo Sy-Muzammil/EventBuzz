@@ -2,6 +2,8 @@
 <?php
 require 'essential.inc.php';
 ?>
+
+
 <?php
 if(isset($_POST['NameP'])&&!empty($_POST['NameP'])){
 	require 'connect.inc.php';

@@ -3,9 +3,14 @@
 <head>
 <?php 
     require 'essential.inc.php';
-    require 'functions.php';
+    #require 'functions.php';
 ?>
-
+<?php
+  include 'eventFunctions.php';
+  include 'userFunctions.php';
+  $User = new UserClass();
+  $Event = new EventClass();
+?>
   <!-- Site made with Mobirise Website Builder v4.3.0, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,7 +91,7 @@
                         </div>
                         <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
                         <?php
-                           getHeader();
+                           $User->getHeader();
                         ?>
 
                             
@@ -113,7 +118,7 @@
 <section class="mbr-section article mbr-section__container" id="content2-2e" data-rv-view="198" style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
 
     <?php
-    getEventDetails();
+    $Event->getEventDetails();
 
     ?>
 

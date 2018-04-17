@@ -3,6 +3,15 @@
 require 'essential.inc.php';
 ?>
 <?php
+  #include 'eventFunctions.php';
+  include 'userFunctions.php';
+  $User = new UserClass();
+  #$Event = new EventClass();
+?>
+
+
+
+<?php
 require 'connect.inc.php';
 mysqli_query($link,"Delete from `Interests` where `id`='".$_SESSION['id']."'");
 mysqli_close ($link);
@@ -45,7 +54,7 @@ if(isset($_POST['Opera'])){
 
 if(isset($_POST['NameP'])&&!empty($_POST['NameP'])){
 		require 'connect.inc.php';
-		$query="UPDATE `user` SET `name`='".$_POST['NameP']."',`contact`='".$_POST['ContactP']."',`Country`='".$_POST['CountryP']."',`State`='".$_POST['StateP']."',`City`='".$_POST['CityP']."',`email`='".$_POST['EmailP']."',`postal_code`='".$_POST['PincodeP']."',`address`='".$_POST['AddressP']."' WHERE id=".$_SESSION['id']."";
+		$query="UPDATE `user` SET `name`='".$_POST['NameP']."',`contact`='".$_POST['ContactP']."',`password`='".$_POST['Password']."',`Country`='".$_POST['CountryP']."',`State`='".$_POST['StateP']."',`City`='".$_POST['CityP']."',`email`='".$_POST['EmailP']."',`postal_code`='".$_POST['PincodeP']."',`address`='".$_POST['AddressP']."' WHERE id=".$_SESSION['id']."";
 		if($run=mysqli_query($link,$query)){
 			header('Location: UserProfile.php');
 		}
@@ -66,7 +75,7 @@ if(isset($_POST['NameP'])&&!empty($_POST['NameP'])){
 <body>
 <div class="main_body" >
 <div class="container">
-  <h2>Dynamic Tabs</h2>
+  <h2>Edit User Profile</h2>
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
   </ul>
@@ -75,8 +84,8 @@ if(isset($_POST['NameP'])&&!empty($_POST['NameP'])){
     <div class="panel panel-default">
     <div class="panel-body"><form role="form" action="editProfile.php" id="login" method="POST" >
 <?php
-	require 'functions.php';
-	getUserEditProfile();
+	
+	$User->getUserEditProfile();
 ?>
 <a href="DisplayEvents.php"><button style="float:right;"type="submit" class="btn btn-info">Home</span></button></a>
 </body>
